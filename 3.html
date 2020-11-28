@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <title>Soal 3</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function printDiamond() {
+            document.getElementById("result").innerHTML = "";
+            var limit = document.getElementById("limit").value;
+            var space = limit;
+            for (i = 1; i <= limit; i++) {
+                let star = "";
+                for (j = 1; j <= space; j++) {
+                    star += "*";
+                }
+                space--;
+                for (j = 1; j <= 2 * i - 1; j++) {
+                    star += "&nbsp;&nbsp;";
+                }
+                space++;
+                for (j = 1; j <= space; j++) {
+                    star += "*";
+                }
+                star += "<br>";
+                document.getElementById("result").insertAdjacentHTML('beforeend', star);
+                space--;
+            }
+            document.getElementById("result").insertAdjacentHTML('beforeend', "DUMBWAYSID<br>");
+            space = 2;
+            for (i = 1; i <= limit; i++) {
+                let star = "";
+                for (j = 1; j <= space; j++) {
+                    star += "*";
+                }
+                space++;
+                for (j = 1; j <= 2 * (limit - i) - 1; j++) {
+                    star += "&nbsp;&nbsp;";
+                }
+                space--;
+                for (j = 1; j <= space; j++) {
+                    star += "*";
+                }
+                star += "<br>";
+                document.getElementById("result").insertAdjacentHTML('beforeend', star);
+                space++;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="number" id="limit" min="2" max="100" />&nbsp;<input type="button" value="Submit"
+        onclick="printDiamond()" name="print" />
+    <br /> <br />
+    <div id="result"></div>
+</body>
+
+</html>
